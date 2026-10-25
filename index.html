@@ -1,0 +1,234 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Dec 5 Volunteer Sign-Up</title>
+<meta name="viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: a red event band, then the day read top to bottom as time blocks, each holding role cards with claimable spots */
+:root{
+  --bg:#fbf7f6; --surface:#ffffff; --ink:#2a1417; --muted:#76585c; --line:#ead9da;
+  --red:#8e0e19; --red-soft:#f7e3e4; --orange:#d9571a; --open:#fff6f0; --good:#1f7a4d;
+  --band-ink:#fff6f2; --time:#8e0e19;
+  --display:"Poppins","Segoe UI",system-ui,sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#170f10; --surface:#22171a; --ink:#f4e9e9; --muted:#c3a8ab; --line:#3b2a2d;
+  --red:#7a0d17; --red-soft:#3a1d21; --orange:#f08a4b; --open:#2a1c18; --good:#5cc490; --band-ink:#fff6f2; --time:#f2a0a5; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#170f10; --surface:#22171a; --ink:#f4e9e9; --muted:#c3a8ab; --line:#3b2a2d;
+  --red:#7a0d17; --red-soft:#3a1d21; --orange:#f08a4b; --open:#2a1c18; --good:#5cc490; --band-ink:#fff6f2; --time:#f2a0a5; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:980px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{background:var(--red);color:var(--band-ink)}
+header .wrap{padding-block:28px 26px;display:grid;gap:10px}
+.eyebrow{font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,5vw,40px);line-height:1.08;margin:0;text-wrap:balance}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:15.5px}
+.facts b{font-weight:700}
+.summary{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-block:18px;border-bottom:1px solid var(--line)}
+.meter{flex:1 1 220px;min-width:0;height:10px;border-radius:5px;background:var(--red-soft);overflow:hidden}
+.meter i{display:block;height:100%;width:0;background:var(--orange);transition:width .4s}
+.count{font-family:var(--display);font-weight:700;font-size:18px;font-variant-numeric:tabular-nums}
+.status{font-size:14px;color:var(--muted);flex-basis:100%}
+.note{margin:18px 0 6px;font-size:15px;color:var(--muted);max-width:68ch}
+.block{display:grid;grid-template-columns:120px 1fr;gap:16px;padding-block:22px;border-bottom:1px solid var(--line)}
+.time{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.25;color:var(--time)}
+.time small{display:block;font-family:var(--body);font-weight:600;font-size:13px;color:var(--muted)}
+.roles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;min-width:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 14px 12px;display:grid;gap:8px;align-content:start;min-width:0}
+.card h3{font-family:var(--display);font-weight:700;font-size:16px;margin:0;display:flex;justify-content:space-between;gap:8px}
+.card h3 span{font-family:var(--body);font-weight:600;font-size:13px;color:var(--muted);white-space:nowrap}
+.duty{font-size:14px;color:var(--muted);margin:0}
+.slots{list-style:none;margin:2px 0 0;padding:0;display:grid;gap:6px}
+.slot{display:flex;align-items:center;gap:8px;min-height:40px;padding:6px 8px 6px 10px;border-radius:8px;border:1px dashed var(--line);background:var(--open);font-size:15px}
+.slot.taken{border-style:solid;background:var(--surface)}
+.slot .who{flex:1;min-width:0;overflow-wrap:anywhere}
+.slot .who small{display:block;font-size:12.5px;color:var(--muted)}
+.slot .open{flex:1;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--line);flex:none}
+.taken .dot{background:var(--good)}
+button{font:inherit;font-weight:700;font-size:14px;border-radius:7px;cursor:pointer;padding:6px 12px;border:1px solid transparent}
+.claim{background:var(--orange);color:#fff}
+.claim:hover{filter:brightness(1.07)}
+.ghost{background:transparent;color:var(--muted);border-color:var(--line)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+button:disabled{opacity:.55;cursor:default}
+form.join{display:grid;gap:8px;padding:10px;border-radius:8px;border:1px solid var(--orange);background:var(--surface)}
+form.join label{font-size:13px;font-weight:600;color:var(--muted);display:grid;gap:3px}
+form.join input,form.join select{font:inherit;font-size:15px;padding:7px 9px;border-radius:7px;border:1px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+form.join .row{display:flex;gap:8px;flex-wrap:wrap}
+.err{font-size:13.5px;color:var(--orange);margin:0}
+.duties{padding-block:26px 40px}
+.duties h2{font-family:var(--display);font-weight:700;font-size:20px;margin:0 0 12px}
+.duties dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px 28px;margin:0}
+.duties dt{font-weight:700}
+.duties dd{margin:2px 0 0;font-size:15px;color:var(--muted)}
+.duties ul{margin:6px 0 0;padding-left:18px}
+@media (max-width:620px){.block{grid-template-columns:1fr;gap:10px}}
+@media (prefers-reduced-motion:reduce){.meter i{transition:none}}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Hearts for Sickle Cell · Volunteer sign-up</div>
+    <h1>Blood Drive Volunteers, Saturday Dec 5</h1>
+    <div class="facts">
+      <span><b>Setup</b> 8:15 AM</span>
+      <span><b>Donors</b> 9:00 AM – 2:00 PM</span>
+      <span><b>Calvary Baptist Church</b>, 324 Monroe Ave, Plainfield NJ</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="summary" aria-live="polite">
+    <span class="count" id="count">0 of 20 spots filled</span>
+    <div class="meter" aria-hidden="true"><i id="bar"></i></div>
+    <span class="status" id="status">Loading sign-ups…</span>
+  </section>
+  <p class="note">Pick an open spot and add your name. Jack and Jill teens and parents are welcome, and teen shifts count toward service hours. Please arrive 10 minutes before your shift. Questions: cnjheartsforsicklecell@gmail.com</p>
+  <div id="day"></div>
+
+  <section class="duties">
+    <h2>What each role does</h2>
+    <dl>
+      <div><dt>Setup crew</dt><dd>Get the room ready before the Red Cross team unloads.
+        <ul><li>Confirm the room is at 68°F</li><li>Open 9 tables and 25 chairs (no wheels) and line them up against one wall</li><li>Keep the entrance clear for the Red Cross driver</li><li>Check bathrooms for toilet paper and soap; put up signs</li></ul></dd></div>
+      <div><dt>Registration desk</dt><dd>Check donors in beside the Red Cross staff member.
+        <ul><li>Mark names on the printed list with a highlighter as Red Cross scans IDs</li><li>Remind donors they need a photo ID</li><li>Point anyone who hasn't done RapidPass to the QR code</li></ul></dd></div>
+      <div><dt>Canteen host</dt><dd>Look after donors after they give.
+        <ul><li>Keep the snack table neat and refill it from the Red Cross cart</li><li>Chat with donors while they rest</li><li>Tell the Red Cross team lead right away if someone looks unwell</li></ul></dd></div>
+      <div><dt>Greeter &amp; awareness table</dt><dd>Welcome people and share the mission.
+        <ul><li>Direct donors to registration</li><li>Hand out Hole in the Wall Gang Camp and sickle cell trait materials</li><li>Take photos (with permission) for #cnjheartsforsicklecell</li></ul></dd></div>
+      <div><dt>Cleanup</dt><dd>Close out the room after the last donor.
+        <ul><li>Bag regular trash (the Red Cross removes medical waste)</li><li>Leave tables and chairs where the Red Cross used them</li><li>Make sure nothing is left behind</li></ul></dd></div>
+    </dl>
+  </section>
+</main>
+
+<script>
+/* Paste the Web app URL from your Apps Script deployment here (see README.md). */
+const APPS_SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+const REFRESH_MS = 10000;
+
+const BLOCKS=[
+  {time:"8:15 AM",sub:"to 9:00 AM",roles:[{key:"setup",name:"Setup crew",span:"8:15–9:00",n:6,duty:"Room at 68°F, tables and chairs open, entrance clear."}]},
+  {time:"9:00 AM",sub:"to 12:00 PM",roles:[
+    {key:"reg1",name:"Registration desk",span:"9–12",n:3,duty:"Check donors in with the printed list."},
+    {key:"can1",name:"Canteen host",span:"9–12",n:2,duty:"Keep snacks stocked; watch for donors who feel unwell."},
+    {key:"gr1",name:"Greeter & awareness table",span:"9–12",n:1,duty:"Welcome donors; share camp and trait info."}]},
+  {time:"12:00 PM",sub:"to 2:00 PM",roles:[
+    {key:"reg2",name:"Registration desk",span:"12–2",n:3,duty:"Check donors in with the printed list."},
+    {key:"can2",name:"Canteen host",span:"12–2",n:2,duty:"Keep snacks stocked; watch for donors who feel unwell."},
+    {key:"gr2",name:"Greeter & awareness table",span:"12–2",n:1,duty:"Welcome donors; share camp and trait info."}]},
+  {time:"2:00 PM",sub:"to close",roles:[{key:"clean",name:"Cleanup",span:"2–close",n:2,duty:"Bag regular trash and leave the room tidy."}]}
+];
+const TOTAL=BLOCKS.reduce((s,b)=>s+b.roles.reduce((t,r)=>t+r.n,0),0);
+const GROUPS=["CNJ teen","CNJ parent","Other Jack and Jill chapter","Church or community"];
+let slots={}, myTokens={}, openForm=null, busy=false, formErr="", backendReady=false;
+const $=id=>document.getElementById(id);
+function el(tag,attrs,...kids){const e=document.createElement(tag);for(const k in attrs||{}){if(k==="class")e.className=attrs[k];else if(k.startsWith("on"))e.addEventListener(k.slice(2),attrs[k]);else e.setAttribute(k,attrs[k]);}for(const c of kids){if(c==null)continue;e.append(c.nodeType?c:document.createTextNode(c));}return e;}
+
+function loadTokens(){try{myTokens=JSON.parse(localStorage.getItem("dec5MyTokens")||"{}");}catch(e){myTokens={};}}
+function saveTokens(){try{localStorage.setItem("dec5MyTokens",JSON.stringify(myTokens));}catch(e){}}
+
+function slotView(id){
+  const s=slots[id];
+  if(s&&s.name){
+    const mine=!!myTokens[id];
+    return el("li",{class:"slot taken"},el("span",{class:"dot"}),
+      el("span",{class:"who"},s.name,el("small",{},s.group||"")),
+      mine?el("button",{class:"ghost",type:"button","aria-label":"Remove "+s.name,onclick:()=>remove(id)},"Remove"):null);
+  }
+  if(openForm===id) return el("li",{},formView(id));
+  return el("li",{class:"slot"},el("span",{class:"dot"}),el("span",{class:"open"},"Open"),
+    backendReady?el("button",{class:"claim",type:"button",onclick:()=>{openForm=id;formErr="";render();setTimeout(()=>{const i=$("nm");i&&i.focus();},0);}},"Sign up"):null);
+}
+function formView(id){
+  const f=el("form",{class:"join",onsubmit:e=>{e.preventDefault();claim(id,$("nm").value.trim(),$("gp").value);}},
+    el("label",{for:"nm"},"Your name",el("input",{id:"nm",name:"nm",required:"",maxlength:"60",autocomplete:"name"})),
+    el("label",{for:"gp"},"I'm signing up as",(()=>{const s=el("select",{id:"gp",name:"gp"});GROUPS.forEach(g=>s.append(el("option",{},g)));return s;})()),
+    formErr?el("p",{class:"err"},formErr):null,
+    el("div",{class:"row"},el("button",{class:"claim",type:"submit"},busy?"Saving…":"Save my spot"),
+      el("button",{class:"ghost",type:"button",onclick:()=>{openForm=null;render();}},"Cancel")));
+  if(busy)f.querySelectorAll("button,input,select").forEach(x=>x.disabled=true);
+  return f;
+}
+function render(){
+  const day=$("day"); const keep=openForm&&$("nm")?{v:$("nm").value,g:$("gp").value}:null;
+  day.replaceChildren(...BLOCKS.map(b=>el("section",{class:"block"},
+    el("div",{class:"time"},b.time,el("small",{},b.sub)),
+    el("div",{class:"roles"},...b.roles.map(r=>{
+      const ids=Array.from({length:r.n},(_,i)=>r.key+"-"+(i+1));
+      const filled=ids.filter(i=>slots[i]&&slots[i].name).length;
+      return el("article",{class:"card"},el("h3",{},r.name,el("span",{},r.span+" · "+filled+"/"+r.n)),
+        el("p",{class:"duty"},r.duty),el("ul",{class:"slots"},...ids.map(slotView)));
+    })))));
+  if(keep&&$("nm")){$("nm").value=keep.v;$("gp").value=keep.g;}
+  const n=Object.values(slots).filter(s=>s&&s.name).length;
+  $("count").textContent=n+" of "+TOTAL+" spots filled";
+  $("bar").style.width=Math.min(100,n/TOTAL*100)+"%";
+}
+async function postAction(payload){
+  const res=await fetch(APPS_SCRIPT_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(payload)});
+  if(!res.ok) throw new Error("http "+res.status);
+  return res.json();
+}
+async function refresh(){
+  try{
+    const res=await fetch(APPS_SCRIPT_URL,{method:"GET"});
+    if(!res.ok) throw new Error("http "+res.status);
+    const data=await res.json();
+    if(data&&data.ok){
+      slots=data.slots||{};
+      backendReady=true;
+      $("status").textContent="Live — refreshes automatically every "+(REFRESH_MS/1000)+" seconds.";
+    }else{
+      $("status").textContent="Couldn't load sign-ups. Please reload the page.";
+    }
+  }catch(e){
+    $("status").textContent="Couldn't connect. Check your internet connection and reload.";
+  }
+  render();
+}
+async function claim(id,name,group){
+  if(!name){formErr="Please enter your name.";render();return;}
+  busy=true;formErr="";render();
+  try{
+    const res=await postAction({action:"claim",slotId:id,name,group});
+    if(!res.ok){
+      formErr=res.error==="taken"?"This spot was just taken. Please pick another.":(res.error||"Couldn't save your spot. Please try again.");
+    }else{
+      myTokens[id]=res.token;saveTokens();
+      openForm=null;
+      await refresh();
+      return;
+    }
+  }catch(e){
+    formErr="Couldn't save your spot. Please check your connection and try again.";
+  }finally{
+    busy=false;render();
+  }
+}
+async function remove(id){
+  try{
+    const res=await postAction({action:"remove",slotId:id,token:myTokens[id]||""});
+    if(res.ok){delete myTokens[id];saveTokens();await refresh();return;}
+    $("status").textContent=res.error||"Couldn't remove that name. Please try again.";
+  }catch(e){
+    $("status").textContent="Couldn't remove that name. Please try again.";
+  }
+  render();
+}
+
+loadTokens();
+render();
+if(!APPS_SCRIPT_URL||APPS_SCRIPT_URL.indexOf("PASTE_")===0){
+  $("status").textContent="Sign-ups aren't connected yet. See README.md to finish setup.";
+}else{
+  refresh();
+  setInterval(refresh,REFRESH_MS);
+}
+</script>
+
+</body></html>
