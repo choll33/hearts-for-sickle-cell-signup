@@ -3,10 +3,15 @@
  * Deploy this as a Web App (Execute as: Me, Who has access: Anyone)
  * and paste the resulting URL into APPS_SCRIPT_URL in index.html.
  *
+ * Paste your Google Sheet's ID below (it's the long string in the
+ * sheet's URL, between /d/ and /edit). The script will create a
+ * "Slots" tab in that sheet automatically on first use.
+ *
  * Data lives in a sheet tab called "Slots" with columns:
  * SlotID | Name | Group | Token | Timestamp
  * The tab and header row are created automatically on first use.
  */
+var SPREADSHEET_ID = "PASTE_YOUR_GOOGLE_SHEET_ID_HERE";
 
 function doGet(e) {
   return respond_(listSlots_());
@@ -38,7 +43,7 @@ function respond_(obj) {
 }
 
 function sheet_() {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   var sh = ss.getSheetByName("Slots");
   if (!sh) {
     sh = ss.insertSheet("Slots");

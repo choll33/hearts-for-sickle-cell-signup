@@ -19,22 +19,34 @@ can claim an open shift; names are stored in a Google Sheet.
 
 1. Go to [sheets.google.com](https://sheets.google.com) and create a new
    blank spreadsheet. Name it something like "Dec 5 Volunteer Signups".
-2. In the Sheet, go to **Extensions → Apps Script**.
-3. Delete any starter code in the editor, then paste in the full contents
-   of [`apps-script/Code.gs`](apps-script/Code.gs) from this repo.
-4. Click **Save** (the disk icon).
-5. Click **Deploy → New deployment**.
+2. Copy its **Sheet ID** from the browser address bar — it's the long
+   string of letters/numbers between `/d/` and `/edit`, e.g. in
+   `https://docs.google.com/spreadsheets/d/1AbCdEfGhIjKlMnOp/edit`
+   the ID is `1AbCdEfGhIjKlMnOp`.
+3. Open your Apps Script project (script.google.com), delete any starter
+   code in the editor, then paste in the full contents of
+   [`apps-script/Code.gs`](apps-script/Code.gs) from this repo.
+4. Near the top of the pasted code, replace
+   `PASTE_YOUR_GOOGLE_SHEET_ID_HERE` with the Sheet ID you copied in
+   step 2.
+5. Click **Save** (the disk icon).
+6. Click the blue **Deploy** button (top right) → **New deployment**.
    - Click the gear icon next to "Select type" and choose **Web app**.
    - Description: anything, e.g. "Dec 5 signup backend".
    - Execute as: **Me**.
    - Who has access: **Anyone**.
    - Click **Deploy**.
-6. The first time, Google will ask you to authorize the script — click
+7. The first time, Google will ask you to authorize the script — click
    through the consent screens (it may warn "Google hasn't verified this
    app"; click **Advanced → Go to (your project name)** since you wrote
    the script yourself).
-7. Copy the **Web app URL** it gives you (ends in `/exec`). You'll need it
+8. Copy the **Web app URL** it gives you (ends in `/exec`). You'll need it
    in the next step.
+
+   Note: this "Deploy" is inside Google's Apps Script editor — it's
+   unrelated to GitHub's "deploy" (which publishes the web page itself,
+   see step 3 below). They're two separate products that happen to share
+   the word "deploy".
 
 ### 2. Point the page at your backend
 
