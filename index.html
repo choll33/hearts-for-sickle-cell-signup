@@ -82,7 +82,7 @@ form.join .row{display:flex;gap:8px;flex-wrap:wrap}
 
 <main class="wrap">
   <section class="summary" aria-live="polite">
-    <span class="count" id="count">0 of 35 spots filled</span>
+    <span class="count" id="count">0 of 38 spots filled</span>
     <div class="meter" aria-hidden="true"><i id="bar"></i></div>
     <span class="status" id="status">Loading sign-ups…</span>
   </section>
@@ -125,7 +125,7 @@ const BLOCKS=[
     {key:"can2",name:"Canteen host",span:"12–2",n:2,duty:"Keep snacks stocked; watch for donors who feel unwell."},
     {key:"gr2",name:"Greeter & awareness table",span:"12–2",n:1,duty:"Welcome donors; share camp and trait info."}]},
   {time:"12:00 PM",sub:"to 2:00 PM · Health Fair",roles:[{key:"hf2",name:"Health & Wellness Fair",span:"12–2",n:5,duty:"Help at the partner tables; greet families and guide them through the fair."}]},
-  {time:"2:00 PM",sub:"to close",roles:[{key:"clean",name:"Cleanup",span:"2–close",n:2,duty:"Bag regular trash and leave the room tidy."}]}
+  {time:"2:00 PM",sub:"to close",roles:[{key:"clean",name:"Cleanup",span:"2–close",n:5,duty:"Bag regular trash and leave the room tidy."}]}
 ];
 const TOTAL=BLOCKS.reduce((s,b)=>s+b.roles.reduce((t,r)=>t+r.n,0),0);
 const GROUPS=["CNJ teen","CNJ parent","Other Jack and Jill chapter","Church or community"];
