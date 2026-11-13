@@ -100,8 +100,8 @@ form.join .row{display:flex;gap:8px;flex-wrap:wrap}
         <ul><li>Keep the snack table neat and refill it from the Red Cross cart</li><li>Chat with donors while they rest</li><li>Tell the Red Cross team lead right away if someone looks unwell</li></ul></dd></div>
       <div><dt>Greeter &amp; awareness table</dt><dd>Welcome people and share the mission.
         <ul><li>Direct donors to registration</li><li>Hand out Hole in the Wall Gang Camp and sickle cell trait materials</li><li>Take photos (with permission) for #cnjheartsforsicklecell</li></ul></dd></div>
-      <div><dt>Health &amp; Wellness Fair</dt><dd>Help families get the most out of the free health fair.
-        <ul><li>Help partner organizations set up and keep their tables stocked</li><li>Greet families and point them to heart health, mental wellness, organ donation and women’s reproductive health tables</li><li>Hand out flyers and invite guests who can give blood to visit registration</li></ul></dd></div>
+      <div><dt>Health Fair</dt><dd>Welcome guests and keep the free health fair running smoothly.
+        <ul><li><b>Greeters:</b> welcome families and guide them to the heart health, mental wellness, organ donation and women’s reproductive health tables</li><li><b>Vendor helpers:</b> help partner organizations set up, keep their tables stocked and pack up</li><li><b>Snacks:</b> set out and refill snacks for health fair guests</li></ul></dd></div>
       <div><dt>Cleanup</dt><dd>Close out the room after the last donor.
         <ul><li>Bag regular trash (the Red Cross removes medical waste)</li><li>Leave tables and chairs where the Red Cross used them</li><li>Make sure nothing is left behind</li></ul></dd></div>
     </dl>
@@ -119,12 +119,12 @@ const BLOCKS=[
     {key:"reg1",name:"Registration desk",span:"9–12",n:3,duty:"Check donors in with the printed list."},
     {key:"can1",name:"Canteen host",span:"9–12",n:2,duty:"Keep snacks stocked; watch for donors who feel unwell."},
     {key:"gr1",name:"Greeter & awareness table",span:"9–12",n:1,duty:"Welcome donors; share camp and trait info."}]},
-  {time:"9:00 AM",sub:"to 12:00 PM · Health Fair",roles:[{key:"hf1",name:"Health & Wellness Fair",span:"9–12",n:5,duty:"Help at the partner tables; greet families and guide them through the fair."}]},
+  {time:"9:00 AM",sub:"to 12:00 PM · Health Fair",roles:[{key:"hf1",name:"Health & Wellness Fair",span:"9–12",n:5,duty:"Greet guests, help the vendors and keep snacks stocked."}]},
   {time:"12:00 PM",sub:"to 2:00 PM",roles:[
     {key:"reg2",name:"Registration desk",span:"12–2",n:3,duty:"Check donors in with the printed list."},
     {key:"can2",name:"Canteen host",span:"12–2",n:2,duty:"Keep snacks stocked; watch for donors who feel unwell."},
     {key:"gr2",name:"Greeter & awareness table",span:"12–2",n:1,duty:"Welcome donors; share camp and trait info."}]},
-  {time:"12:00 PM",sub:"to 2:00 PM · Health Fair",roles:[{key:"hf2",name:"Health & Wellness Fair",span:"12–2",n:5,duty:"Help at the partner tables; greet families and guide them through the fair."}]},
+  {time:"12:00 PM",sub:"to 2:00 PM · Health Fair",roles:[{key:"hf2",name:"Health & Wellness Fair",span:"12–2",n:5,duty:"Greet guests, help the vendors and keep snacks stocked."}]},
   {time:"2:00 PM",sub:"to close",roles:[{key:"clean",name:"Cleanup",span:"2–close",n:5,duty:"Bag regular trash and leave the room tidy."}]}
 ];
 const TOTAL=BLOCKS.reduce((s,b)=>s+b.roles.reduce((t,r)=>t+r.n,0),0);
